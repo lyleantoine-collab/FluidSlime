@@ -1,0 +1,7 @@
+{
+  "max_current_density_A_per_mm2": 20,
+  "min_trace_spacing_mm": 0.15,
+  "max_temperature_rise_C": 15,
+  "IPC_standard": "IPC-2221",
+  "target_thermal_improvement_percent": 28
+}
