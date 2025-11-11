@@ -1,0 +1,8 @@
+{
+  "max_pressure_drop_in_wc_per_100ft": 0.08,
+  "min_velocity_fpm": 400,
+  "max_velocity_fpm": 2000,
+  "max_noise_nc": 35,
+  "ASHRAE_standard": "90.1-2022",
+  "target_energy_savings_percent": 25
+}
