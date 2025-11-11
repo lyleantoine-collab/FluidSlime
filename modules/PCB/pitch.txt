@@ -1,0 +1,13 @@
+Subject: Your boards run 28% cooler – no respin
+
+FluidSlime routes traces like capillaries:
+- Zero hot spots
+- Shorter paths
+- IPC-2221 compliant
+- Drop in your KiCad/Altium file
+
+Repo: https://github.com/lyleantoine-collab/FluidSlime
+
+Run your board first?
+
+Lyle
