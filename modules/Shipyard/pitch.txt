@@ -1,0 +1,15 @@
+Subject: Trim your FPSO pumps 22% – no yard time
+
+Your utility lines fight the hull.
+
+FluidSlime grows them like arteries:
+- 22% less pump power
+- Perfect weight balance
+- DNV-GL compliant
+- One click from 3D model
+
+Repo: https://github.com/lyleantoine-collab/FluidSlime
+
+Run your vessel first?
+
+Lyle
