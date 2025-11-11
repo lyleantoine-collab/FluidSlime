@@ -1,0 +1,13 @@
+Subject: Your cable trays are cooking – we fixed it
+
+FluidSlime bundles cables like veins:
+- 20% cooler
+- 40% fill max (NEC)
+- Zero voltage drop issues
+- One click from your tray layout
+
+Repo: https://github.com/lyleantoine-collab/FluidSlime
+
+Run your plant trays first?
+
+Lyle
