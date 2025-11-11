@@ -1,0 +1,7 @@
+{
+  "max_fill_percent": 40,
+  "max_voltage_drop_percent": 3,
+  "max_temperature_rise_C": 20,
+  "NEC_reference": "Article 392",
+  "target_cooling_improvement_percent": 20
+}
