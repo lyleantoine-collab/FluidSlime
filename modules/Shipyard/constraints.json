@@ -1,0 +1,7 @@
+{
+  "max_velocity_fps": 12,
+  "min_bend_radius_ratio": 5,
+  "weight_balance_tolerance_meters": 0.5,
+  "DNVGL_reference": "Pt.4 Ch.6",
+  "target_pump_savings_percent": 22
+}
