@@ -1,0 +1,7 @@
+{
+  "max_slurry_velocity_fps": 8,
+  "min_slurry_velocity_fps": 4,
+  "max_pressure_drop_psi_per_100ft": 2.5,
+  "MSHA_reference": "30 CFR Part 57",
+  "target_water_savings_percent": 22
+}
