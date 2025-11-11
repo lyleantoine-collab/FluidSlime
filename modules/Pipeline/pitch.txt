@@ -1,0 +1,15 @@
+Subject: Cut pump costs 28% on your next rig – no new steel
+
+Your field piping fights the terrain.
+
+FluidSlime grows routes like roots:
+- 28% less pump energy
+- Fewer erosion leaks
+- Full CFR 192 compliance
+- Works on existing CAD
+
+Repo: https://github.com/lyleantoine-collab/FluidSlime
+
+Run your field first?
+
+Lyle
