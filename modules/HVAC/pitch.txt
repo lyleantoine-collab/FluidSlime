@@ -1,0 +1,15 @@
+Subject: 25% HVAC energy cut – slime mold, not smoke & mirrors
+
+Your ductwork bleeds power on every elbow.
+
+FluidSlime reroutes it like veins:
+- 20-30% less fan energy
+- ASHRAE pressure-drop compliant
+- Zero AHU redesign
+- One click from Revit/IFC
+
+Repo: https://github.com/lyleantoine-collab/FluidSlime
+
+Want your building run first?
+
+Lyle
