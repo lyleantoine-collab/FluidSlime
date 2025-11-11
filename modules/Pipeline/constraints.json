@@ -1,0 +1,8 @@
+{
+  "max_pressure_drop_psi_per_mile": 10,
+  "min_velocity_fps": 3,
+  "max_velocity_fps": 15,
+  "erosion_limit_fps": 12,
+  "CFR_reference": "49 CFR Part 192",
+  "target_pump_savings_percent": 28
+}
