@@ -1,0 +1,13 @@
+Subject: Your slurry pumps are begging for mercy
+
+FluidSlime reroutes every line in the mill like veins:
+- 35% less pump power
+- No more settling blockages
+- MSHA compliant
+- Drop in your plant CAD
+
+Repo: https://github.com/lyleantoine-collab/FluidSlime
+
+Run your mill first?
+
+Lyle
