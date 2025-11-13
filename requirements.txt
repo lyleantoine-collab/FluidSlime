@@ -4,3 +4,9 @@ scipy
 matplotlib
 pyyaml
 simplekml
+streamlit
+pymoo
+deap
+simplekml
+pyyaml
+numba
