@@ -1,0 +1,8 @@
+name: Pump-Free Sewer
+constraints:
+  min_slope: 0.005
+  max_slope: 0.04
+  manhole_spacing: 80
+cost:
+  per_meter: 520
+  manhole: 8000
