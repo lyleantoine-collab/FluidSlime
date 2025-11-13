@@ -1,0 +1,7 @@
+name: HVAC Ducts
+constraints:
+  max_pressure_loss: 0.8  # Pa/m
+  min_velocity: 4.0
+  max_velocity: 8.0
+cost:
+  per_meter: 280
