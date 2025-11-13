@@ -129,3 +129,8 @@ with col2:
                 ancient_paths = scan_ancient_canal("data/temp_dem.tif", known_points)
                 st.write(f"Found {len(ancient_paths)} ghost canals!")
                 # Future: overlay all paths
+# In app.py, add to module selector
+elif module == "HVAC Multi-Line":
+    sources = [(-14.7, -75.1), (-14.75, -75.12)]
+    sinks = [(-14.68, -75.11), (-14.69, -75.105)]
+    paths = design_hvac_network("data/temp_dem.tif", sources, sinks)
