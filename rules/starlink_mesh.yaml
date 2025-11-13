@@ -1,0 +1,10 @@
+name: Nova Agora Starlink Mesh
+constraints:
+  line_of_sight: true
+  max_distance: 500
+  min_neighbors: 3
+behavioral:
+  density_bonus: 5.0
+  coherence_pulse: 7.83
+cost:
+  per_dish: 599
