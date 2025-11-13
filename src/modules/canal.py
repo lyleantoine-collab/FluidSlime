@@ -20,3 +20,11 @@ def design_gravity_canal(dem_path, start_latlon, end_latlon,
     plt.show()
 
     return path_px, elev, tubes
+# <<< ADD THESE LINES AT THE END OF design_gravity_canal >>>
+    from src.io.kml import path_to_kml
+    from rasterio.transform import from_origin  # temp fake transform if no DEM
+    fake_transform = from_origin(-74.25, -13.15, 0.001, 0.001)  # rough Nazca area
+    path_to_kml(path_px, elev, fake_transform)
+    # <<<
+    
+    return path_px, elev, tubes
