@@ -1,0 +1,7 @@
+name: PCB Traces
+constraints:
+  trace_width: 0.2
+  clearance: 0.15
+  max_angle: 45
+cost:
+  per_mm: 0.05
