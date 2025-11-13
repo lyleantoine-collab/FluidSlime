@@ -1,0 +1,6 @@
+name: Pipeline
+constraints:
+  bend_radius: 5
+  burial_depth: 1.2
+cost:
+  per_meter: 680
