@@ -1,0 +1,1 @@
+yaml<br>slime:<br>  steps: 200<br>  max_slope: 0.015<br>  decay: 0.98<br>  growth: 0.05<br>  fade: 0.9<br><br>output:<br>  kml_line_width: 4<br>  kml_color: "ff0000ff"
