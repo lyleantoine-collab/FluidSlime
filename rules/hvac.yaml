@@ -1,7 +1,14 @@
-name: HVAC Ducts
+# rules/hvac.yaml
+name: HVAC Multi-Line Network
 constraints:
-  max_pressure_loss: 0.8  # Pa/m
+  max_pressure_loss: 0.8     # Pa/m
   min_velocity: 4.0
   max_velocity: 8.0
+  duct_shape: rectangular
+  max_branches: 8
+  termite_decay: 0.95
+  vortex_strength: 0.3
 cost:
   per_meter: 280
+  fitting: 45
+  vortex_damper: 120
