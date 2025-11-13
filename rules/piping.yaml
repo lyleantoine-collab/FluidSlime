@@ -1,0 +1,12 @@
+# rules/piping.yaml
+name: Piping Multi-Line Network
+constraints:
+  bend_radius: 5
+  burial_depth: 1.2
+  max_pressure: 10.0
+  termite_decay: 0.96
+  vortex_strength: 0.2
+cost:
+  per_meter: 680
+  elbow: 85
+  valve: 320
