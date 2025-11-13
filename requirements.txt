@@ -10,3 +10,7 @@ deap
 simplekml
 pyyaml
 numba
+scikit-opt        # GA, PSO, DE, SA — battle-tested
+inspyred          # ECJ-style evolutionary computation
+niapy             # Nature-inspired algorithms (200+)
+pyade             # Differential Evolution
