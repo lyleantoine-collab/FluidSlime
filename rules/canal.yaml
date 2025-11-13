@@ -1,0 +1,6 @@
+name: Gravity Canal
+constraints:
+  max_slope: 0.012
+  min_velocity: 0.6
+cost:
+  per_meter: 380
