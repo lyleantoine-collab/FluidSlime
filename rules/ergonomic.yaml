@@ -1,0 +1,11 @@
+name: Ergonomic Walkway
+constraints:
+  max_slope: 0.05
+  min_width: 2.5
+  shade_coverage: 0.6
+behavioral:
+  sunlight_weight: 1.8
+  noise_penalty: -2.0
+  green_proximity: 3.0
+cost:
+  bench_per_50m: 1
