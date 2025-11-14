@@ -17,3 +17,7 @@ pyade             # Differential Evolution
 pyfoam
 ifcopenshell
 numba==0.60.0
+streamlit
+speechrecognition
+pyaudio
+numba==0.60.0
