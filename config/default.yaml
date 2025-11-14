@@ -3,5 +3,9 @@ use_vortex: true
 use_termite: true
 pso_particles: 30
 pso_iter: 15
-ga_pop: 30
-ga_gen: 20
+ga_pop: 20
+ga_gen: 15
+aco_ants: 40
+aco_steps: 80
+nsga_pop: 30
+nsga_gen: 20
