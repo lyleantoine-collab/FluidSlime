@@ -1,4 +1,4 @@
-# src/core/routing_engine.py — SLIME → ANT → GA → PSO → NSGA-II
+# src/core/routing_engine.py — SLIME → ANT → GA → PSO → NSGA-II → WOA
 from src.core.factory import get_optimizer
 from src.io.dem import load_dem
 from src.io.kml import path_to_kml
@@ -13,6 +13,7 @@ if cfg.get("use_hybrid", False):
     from src.core.ga_refine import ga_refine_path
     from src.core.pso_refine import pso_refine_path
     from src.core.nsga2 import nsga2_refine
+    from src.core.woa_refine import woa_refine_path
 
 def design_route(dem_path, start, end, rules, module="canal"):
     elev = start_px = end_px = transform = None
@@ -26,6 +27,7 @@ def design_route(dem_path, start, end, rules, module="canal"):
         path_px = ga_refine_path(path_px, elev, transform)
         path_px = pso_refine_path(path_px, elev, transform)
         path_px = nsga2_refine(path_px, elev, transform)
+        path_px = woa_refine_path(path_px, elev, transform)
 
     cost = calculate_cost(path_px, elev, module) if elev else 0
     kml = path_to_kml(path_px, elev, transform, f"{module}.kml") if elev else None
