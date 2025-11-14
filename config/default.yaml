@@ -1,6 +1,11 @@
-use_hybrid: true
-use_vortex: true
-use_termite: true
+# config/default.yaml — SEPTET HYBRID CONFIG
+use_hybrid: true          # SLIME + ANT + GA + PSO + NSGA-II + WOA + FIREFLY
+use_vortex: true          # HVAC airflow boost
+use_termite: true         # Self-healing pipes
+slime:
+  steps: 400
+  max_slope: 0.012
+  min_velocity: 0.6
 pso_particles: 30
 pso_iter: 15
 ga_pop: 20
@@ -13,3 +18,4 @@ woa_whales: 25
 woa_gen: 18
 firefly_count: 20
 firefly_gen: 15
+pulse_freq: 7.83          # HVAC resonance
