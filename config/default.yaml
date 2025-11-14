@@ -1,21 +1,11 @@
-# config/default.yaml — FULL FILE (TRIPLE HYBRID ON)
-slime:
-  steps: 400
-  max_slope: 0.012
-  min_velocity: 0.6
-
+# config/default.yaml — QUAD BEAST CONFIG
+slime: {steps: 400, max_slope: 0.012}
 optimizer: hybrid
-
-# TRIPLE HYBRID
 use_hybrid: true
-
-# VORTEX & TERMITE
 use_vortex: true
 use_termite: true
-
-# HVAC PULSE
 pulse_freq: 7.83
-
-# GA PARAMS
 ga_pop_size: 50
 ga_generations: 30
+pso_particles: 40
+pso_iter: 50
