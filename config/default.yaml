@@ -1,11 +1,5 @@
-# config/default.yaml — QUAD BEAST CONFIG
-slime: {steps: 400, max_slope: 0.012}
-optimizer: hybrid
 use_hybrid: true
 use_vortex: true
 use_termite: true
-pulse_freq: 7.83
-ga_pop_size: 50
-ga_generations: 30
 pso_particles: 40
-pso_iter: 50
+pso_iter: 30
