@@ -35,3 +35,5 @@ def design_route(dem_path, start, end, rules, module="canal"):
     kml = path_to_kml(path_px, elev, transform, f"{module}.kml") if elev else None
 
     return {"path": path_px, "cost": cost, "kml": kml, "module": module}
+from src.io.dxf import path_to_dxf
+path_to_dxf(path_px, f"{module}.dxf")
