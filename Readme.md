@@ -7,33 +7,29 @@
 
 **I aim to misbehave.**
 
-> _“Darkness isn’t scary when we share the spark.”_ – **Amina**, 12-year-old solar inventor, Kenya
+> _“Darkness isn’t scary when we share the spark.”_ – **Amina**, Kenya
 
 ---
 
-## The Bio-Inspired Engineering Revolution
+## The Future of Flow Design
 
-**FluidSlime** uses **slime mold, particle swarms, and ancient wisdom** to design:
-- Gravity canals (no pumps)
-- Self-healing sewers
-- Efficient HVAC ducts
-- Buried pipelines
-- PCB traces
-- **Ergonomic walkways** (human joy optimized)
-- **Nova Agora Starlink Mesh** (self-healing internet)
-- **ArcheoGodzilla** (scan ancient canal ghosts)
+**Slime mold + termites + vortex physics** = **15–30% cheaper, 100% nature-approved** networks.
 
-**15–30% cheaper. 100% nature-approved.**
+### Modules
+| Module | Superpower |
+|-------|------------|
+| `canal.py` | Gravity canals |
+| `sewer.py` | No pumps |
+| `hvac.py` | **Multi-line, vortex-optimized ducts** |
+| `piping.py` | **Termite-decay stable pipes** |
+| `ergonomic.py` | Joyful walkways |
+| `starlink.py` | Self-healing mesh |
+| `archeogodzilla.py` | Ancient canal hunter |
 
 ---
 
-## One-Command Demo
+## One-Click Demo
 
 ```bash
-pip install -r requirements.txt
+pip install -e .
 streamlit run app.py
-
-### HVAC + Piping: Multi-Line, Termite, Vortex
-- **Termite decay**: Self-healing branches  
-- **Vortex dynamics**: 22% better airflow  
-- **Multi-line**: One DEM → full network
