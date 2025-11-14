@@ -41,3 +41,12 @@ import pyttsx3
 engine = pyttsx3.init()
 engine.say(f"Your design saves {int((1200 - len(r['path'])*30)/1200*100)} percent and costs {int(r['cost']):,} dollars.")
 engine.runAndWait()
+# Add to app.py
+import folium
+
+if st.checkbox("Show on Map"):
+    m = folium.Map(location=[start[0], start[1]], zoom_start=15, tiles="OpenStreetMap")
+    folium.PolyLine(
+        [(transform * (x, y))[1], (transform * (x, y))[0]] for y, x in result['path']
+    ).add_to(m)
+    folium_static(m)
