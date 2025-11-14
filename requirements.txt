@@ -16,3 +16,4 @@ niapy             # Nature-inspired algorithms (200+)
 pyade             # Differential Evolution
 pyfoam
 ifcopenshell
+numba==0.60.0
