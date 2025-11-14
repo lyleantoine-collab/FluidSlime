@@ -1,45 +1,47 @@
-# config/default.yaml — FluidSlime SEPTET HYBRID CONFIG
-# All values tuned for 55% savings, 0.022s on 100x100 DEMs
+# config/default.yaml — FULL FLUIDSLIME CONFIG (SEPTET + 3D + GIS)
+use_hybrid: true
+use_vortex: true
+use_termite: true
 
-# === CORE TOGGLES ===
-use_hybrid: true          # Enables full SEPTET: SLIME + ANT + GA + PSO + NSGA-II + WOA + FIREFLY
-use_vortex: true          # Adds spiral airflow boost (HVAC) — +22% efficiency
-use_termite: true         # Enables decay + regrowth — self-healing networks
+# === INPUT RESOLUTION ===
+lidar_resolution: 1.0        # meters per pixel
+photo_resolution: 0.5        # GSD for drone photos
+obstacle_height: 2.0         # meters above ground to detect
 
-# === SLIME MOLD CORE ===
+# === SLIME CORE ===
 slime:
-  steps: 400              # Diffusion iterations — more = smoother organic growth
-  max_slope: 0.012        # Max allowed gradient (12mm/m) — prevents erosion
-  min_velocity: 0.6       # Minimum flow speed (m/s) — ensures drainage
+  steps: 400
+  max_slope: 0.012
+  min_velocity: 0.6
 
-# === HYBRID REFINERS ===
-pso_particles: 30         # PSO swarm size — balance speed vs exploration
-pso_iter: 15              # PSO iterations — fast convergence
-ga_pop: 20                # GA population — diversity in path evolution
-ga_gen: 15                # GA generations — avoid over-evolution
-aco_ants: 40              # ACO ants — pheromone trail density
-aco_steps: 80             # ACO refinement steps — polish paths
-nsga_pop: 30              # NSGA-II population — Pareto front quality
-nsga_gen: 20              # NSGA-II generations — multi-objective balance
-woa_whales: 25            # WOA whales — bubble-net hunting intensity
-woa_gen: 18               # WOA generations — spiral optimization
-firefly_count: 20         # Firefly agents — light-based attraction
-firefly_gen: 15           # Firefly iterations — smooth curve refinement
+# === SEPTET HYBRID ===
+pso_particles: 30
+pso_iter: 15
+ga_pop: 20
+ga_gen: 15
+aco_ants: 40
+aco_steps: 80
+nsga_pop: 30
+nsga_gen: 20
+woa_whales: 25
+woa_gen: 18
+firefly_count: 20
+firefly_gen: 15
 
-# === PHYSICS & ENGINEERING ===
-pulse_freq: 7.83          # HVAC duct resonance (Schumann) — reduces vibration
-vortex_strength: 0.3      # Spiral intensity in ducts — airflow gain
-termite_decay_rate: 0.05  # Tube shrinkage per step — enables self-repair
+# === PHYSICS ===
+pulse_freq: 7.83
+vortex_strength: 0.3
+termite_decay_rate: 0.05
 
-# === COST MODEL (per meter) ===
+# === COST MODEL ($/m) ===
 cost:
-  excavation: 120.0       # $/m³ — canal digging
-  concrete: 180.0         # $/m³ — lining
-  steel: 8.0              # $/kg — HVAC/pipe
-  labor: 75.0             # $/hr — installation
-  erosion_penalty: 1000.0 # $ per meter over max_slope
+  excavation: 120.0
+  concrete: 180.0
+  steel: 8.0
+  labor: 75.0
+  erosion_penalty: 1000.0
 
 # === OUTPUT ===
 output:
-  kml_precision: 30       # Meters per KML point
-  log_level: info         # debug / info / warning
+  kml_precision: 30
+  log_level: info
