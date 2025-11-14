@@ -1,4 +1,4 @@
-# config/default.yaml — FULL FILE (OVERWRITE)
+# config/default.yaml — FULL FILE (TRIPLE HYBRID ON)
 slime:
   steps: 400
   max_slope: 0.012
@@ -6,7 +6,7 @@ slime:
 
 optimizer: hybrid
 
-# HYBRID TOGGLE
+# TRIPLE HYBRID
 use_hybrid: true
 
 # VORTEX & TERMITE
@@ -15,3 +15,7 @@ use_termite: true
 
 # HVAC PULSE
 pulse_freq: 7.83
+
+# GA PARAMS
+ga_pop_size: 50
+ga_generations: 30
