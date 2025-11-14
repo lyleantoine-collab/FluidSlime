@@ -11,3 +11,5 @@ nsga_pop: 30
 nsga_gen: 20
 woa_whales: 25
 woa_gen: 18
+firefly_count: 20
+firefly_gen: 15
