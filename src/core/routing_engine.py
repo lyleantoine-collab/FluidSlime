@@ -23,3 +23,10 @@ def design_route(dem_path, start_latlon, end_latlon, rules, module="canal"):
         "module": module,
         "spark": "shared"
     }
+# In routing_engine.py
+from src.core.vortex_termite import apply_termite_decay, apply_vortex_dynamics
+
+def design_route(...):
+    # After slime run
+    tubes = apply_termite_decay(tubes, rules.get("termite_decay", 0.95))
+    tubes = apply_vortex_dynamics(tubes, path_px, rules.get("vortex_strength", 0.3))
