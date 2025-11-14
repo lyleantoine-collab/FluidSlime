@@ -18,3 +18,6 @@ def run_real(dem_path, start, end, name="unknown"):
     with open(f"proof/{name}.json", "w") as f:
         json.dump(result, f, indent=2)
     print(f"PROOF SAVED: {name}.json")
+# At end of file
+from reports.auto_report import generate_report
+generate_report(r, name)
