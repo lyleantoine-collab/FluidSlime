@@ -1,8 +1,17 @@
-# src/core/routing_engine.py
+# src/core/routing_engine.py — FULL FILE (OVERWRITE)
 from src.core.factory import get_optimizer
 from src.io.dem import load_dem
 from src.io.kml import path_to_kml
 from src.core.cost_engine import calculate_cost
+import yaml
+
+# Load config
+with open("config/default.yaml") as f:
+    cfg = yaml.safe_load(f)
+
+# HYBRID: Import ACO refiner
+if cfg.get("use_hybrid", False):
+    from src.core.aco_refine import aco_refine_path
 
 def design_route(dem_path, start_latlon, end_latlon, rules, module="canal"):
     if dem_path:
@@ -13,8 +22,12 @@ def design_route(dem_path, start_latlon, end_latlon, rules, module="canal"):
     optimizer = get_optimizer()
     path_px, extra = optimizer(elev, start_px, end_px, transform)
 
+    # HYBRID: Refine with ACO if enabled
+    if cfg.get("use_hybrid", False) and elev is not None:
+        path_px = aco_refine_path(path_px, elev, transform)
+
     cost = calculate_cost(path_px, elev, module) if elev is not None else 0
-    kml_file = path_to_kml(path_px, elev, transform) if elev is not None else None
+    kml_file = path_to_kml(path_px, elev, transform, f"{module}_path.kml") if elev is not None else None
 
     return {
         "path": path_px,
@@ -23,10 +36,3 @@ def design_route(dem_path, start_latlon, end_latlon, rules, module="canal"):
         "module": module,
         "spark": "shared"
     }
-# In routing_engine.py
-from src.core.vortex_termite import apply_termite_decay, apply_vortex_dynamics
-
-def design_route(...):
-    # After slime run
-    tubes = apply_termite_decay(tubes, rules.get("termite_decay", 0.95))
-    tubes = apply_vortex_dynamics(tubes, path_px, rules.get("vortex_strength", 0.3))
