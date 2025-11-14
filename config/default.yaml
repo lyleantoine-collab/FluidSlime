@@ -1,5 +1,7 @@
 use_hybrid: true
 use_vortex: true
 use_termite: true
-pso_particles: 40
-pso_iter: 30
+pso_particles: 30
+pso_iter: 15
+ga_pop: 30
+ga_gen: 20
