@@ -22,54 +22,29 @@
 | **Self-Healing Piping** | Arctic | Termite repair | **+30% lifespan** | `piping.py` |
 | **Newfoundland Road** | MUN Campus | Erosion-safe | **60% vs CAD** | **Your test** |
 | **Starlink Mesh** | Rural NL | Self-healing | **99.9% uptime** | `starlink.py` |
-| **ArcheoGodoGodzilla**zilla** | Peru | Peru | Ancient canals | ** | Ancient canals | **33 new sites new sites**** | | ` `archeogodzarcheogodzilla.py`illa.py` |
-
- |
+| **ArcheoGodzilla** | Peru | Ancient canals | **3 new sites** | `archeogodzilla.py` |
 
 ---
 
-##---
+## Performance Benchmarks (100x100 DEM, 30m/pixel)
 
-## Benchmarks (100x100 DEM, 100x100 DEM, 30m/pixel)
+| Hybrid Stage | Time | Length | Cost | Savings vs Straight |
+|-------------|------|--------|------|---------------------|
+| Slime Only | 0.180s | 1,200m | $144,000 | 0% |
+| + ACO | 0.150s | 1,020m | $122,400 | 15% |
+| + GA | 0.120s | 920m | $110,400 | 23% |
+| + PSO | 0.100s | 820m | $98,400 | 32% |
+| + NSGA-II | 0.080s | 720m | $86,400 | 40% |
+| + WOA | 0.060s | 660m | $79,200 | 45% |
+| + Firefly | **0.022s** | **570m** | **$68,400** | **55%** |
 
-|30m/pixel)
-
-| Hybrid Stage Stage | Time | Time | Length | | Length | Cost | Savings Cost | Savings vs vs Straight Straight |
-| |
-|--------------------------|------|------|--------||--------|------------|----------------|---------------------|
-| Slime Only-----|
-| Slime Only | | 0.180 0.180s | 1,200s | 1,200mm | $144,000 | $144,000 | | 0 % |
-|% |
-| + + ACO | 0. ACO | 0.150150s | 1,s | 1,020m | $122,020m | $122,400400 | 15% |
- | 15% |
-| +| GA | 0 + GA | 0.120s |.120s | 920m 920m | $ |110 $110,400 |,400 | 23% 23% |
-| + PSO |  |
-| + PSO | 00.100.100s | |  820820mm | $98, | $98,400400 | 32 | 32% |
-% |
-| + NS| + NSGAGA-II |-II | 0.080 0.080s | 720m |s | 720m | $86,400 |  $86,400 | 40% |
-|40% |
-| + + W WOA | 0.060OA | 0.060s | 660m |s | 660m | $79,200 |  $79,200 | 4545% |
-| + Fire% |
-| + Firefly | **0.022s** | **570mfly | **0.022s** | **570m** | **$68,** | **$68,400** | **55%400** | **55%** |
-
-> **Hardware** |
-
-> **Hardware**: MacBook Air M1**: MacBook Air M1  
-  
-> **Run**: `> **Run**: `pythonpython benchmarks/performance.py`
+> **Hardware**: MacBook Air M1  
+> **Run**: `python benchmarks/performance.py`
 
 ---
-
- benchmarks/performance.py`
-
----
-
-## One-Click Demo
 
 ## One-Click Demo
 
 ```bash
-pip install -```bash
 pip install -e .
-streamlit run appe .
 streamlit run app.py
