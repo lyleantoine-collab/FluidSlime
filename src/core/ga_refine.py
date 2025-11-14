@@ -1,43 +1,14 @@
-# src/core/ga_refine.py — FULL FILE (12 LINES OF EVOLUTION)
+# src/core/ga_refine.py — 6 LINES OF EVOLUTION
 import numpy as np
 
-def ga_refine_path(path_px, elev, transform, pop_size=50, generations=30, mutation_rate=0.2):
-    rows, cols = elev.shape
-    population = [_mutate_path(path_px, rows, cols) for _ in range(pop_size)]
-    for _ in range(generations):
-        scores = [_score_path(p, elev) for p in population]
-        best_idx = np.argmin(scores)
-        if scores[best_idx] < _score_path(path_px, elev):
-            path_px = population[best_idx]
-        # Breed top 10%
-        elite = [population[i] for i in np.argsort(scores)[:pop_size//10]]
-        population = elite[:]
-        while len(population) < pop_size:
-            parent1, parent2 = np.random.choice(elite, 2, replace=False)
-            child = _crossover(parent1, parent2)
-            if np.random.rand() < mutation_rate:
-                child = _mutate_path(child, rows, cols)
-            population.append(child)
-    return path_px
+def ga_refine_path(p, e, t, pop=30, gen=20, mut=0.25):
+    pop = [_mut(p, *e.shape) for _ in range(pop)]
+    for _ in range(gen):
+        pop = sorted(pop, key=lambda x: _sc(x,e))[:pop//3]
+        pop += [_cross(pop[np.random.randint(len(pop))], pop[np.random.randint(len(pop))]) for _ in range(pop//3)]
+        pop = [_mut(x, *e.shape) if np.random.rand()<mut else x for x in pop]
+    return min(pop, key=lambda x: _sc(x,e))
 
-def _crossover(p1, p2):
-    split = len(p1)//2
-    return p1[:split] + [p for p in p2[split:] if p not in p1[:split]]
-
-def _mutate_path(path, rows, cols):
-    if len(path) < 3: return path
-    idx = np.random.randint(1, len(path)-1)
-    y, x = path[idx]
-    dy, dx = np.random.randint(-2, 3, 2)
-    new_y, new_x = np.clip([y+dy, x+dx], 0, [rows-1, cols-1])
-    return path[:idx] + [(new_y, new_x)] + path[idx+1:]
-
-def _score_path(path, elev):
-    if len(path) < 2: return 1e6
-    score = 0
-    for i in range(len(path)-1):
-        y1, x1 = path[i]; y2, x2 = path[i+1]
-        dz = abs(elev[y2,x2] - elev[y1,x1])
-        dist = max(1, np.hypot(y2-y1, x2-x1))
-        score += dist + 100 * max(0, dz/dist - 0.012)
-    return score
+def _mut(p,r,c): return p if len(p)<3 else p[:i:=np.random.randint(1,len(p)-1)]+[(np.clip(p[i][0]+np.random.randint(-3,4),0,r-1),np.clip(p[i][1]+np.random.randint(-3,4),0,c-1))]+p[i+1:]
+def _cross(a,b): s=len(a)//2; return a[:s]+[x for x in b[s:] if x not in a[:s]]
+def _sc(p,e): return sum(max(1,np.hypot(p[i+1][0]-p[i][0],p[i+1][1]-p[i][1])+100*max(0,abs(e[p[i+1]]-e[p[i]])/max(1,np.hypot(p[i+1][0]-p[i][0],p[i+1][1]-p[i][1]))-0.012)) for i in range(len(p)-1)) if len(p)>1 else 1e9
