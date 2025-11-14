@@ -1,11 +1,10 @@
-# FluidSlime: Install & Use Guide
+# FluidSlime: Install & Use (2 Minutes)
 
-> **For students, engineers, and anyone who wants to design 55% cheaper infrastructure in 0.02 seconds.**
+> **55% cheaper infrastructure in 0.02s. Voice-controlled.**
 
 ---
 
-## 1. Install (30 seconds)
-
+## Install
 ```bash
 git clone https://github.com/lyleantoine-collab/FluidSlime.git
 cd FluidSlime
