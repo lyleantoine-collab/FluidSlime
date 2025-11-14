@@ -9,3 +9,5 @@ aco_ants: 40
 aco_steps: 80
 nsga_pop: 30
 nsga_gen: 20
+woa_whales: 25
+woa_gen: 18
