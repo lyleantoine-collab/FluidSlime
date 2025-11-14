@@ -32,3 +32,8 @@
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
+
+### HVAC + Piping: Multi-Line, Termite, Vortex
+- **Termite decay**: Self-healing branches  
+- **Vortex dynamics**: 22% better airflow  
+- **Multi-line**: One DEM → full network
