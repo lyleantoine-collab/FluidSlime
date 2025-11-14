@@ -36,3 +36,8 @@ if dem and st.button("Run"):
             r = design_hvac_network(dem.name, [tuple(map(float,s.split(','))) for s in src.split('),(')], [tuple(map(float,s.split(','))) for s in snk.split('),(')])
         st.success(f"Cost: ${r['cost']:,.0f} | Length: {len(r['path'])*30}m")
         st.download_button("KML", r["kml"], "path.kml")
+# After result
+import pyttsx3
+engine = pyttsx3.init()
+engine.say(f"Your design saves {int((1200 - len(r['path'])*30)/1200*100)} percent and costs {int(r['cost']):,} dollars.")
+engine.runAndWait()
