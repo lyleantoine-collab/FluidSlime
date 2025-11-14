@@ -1,4 +1,4 @@
-# requirements.txt — FULL FILE (PhD-GRADE)
+# requirements.txt — FULL DEPENDENCIES
 numpy==1.26.4
 rasterio==1.3.9
 streamlit==1.38.0
@@ -10,8 +10,10 @@ pyaudio==0.2.14
 matplotlib==3.8.4
 scikit-learn==1.5.0
 scipy==1.13.0
-geopandas
-shapefile
-rasterio
-folium
-streamlit-folium
+laspy==2.5.0
+geopandas==0.14.0
+shapefile==2.3.1
+folium==0.15.0
+streamlit-folium==0.17.0
+fpdf==1.7.2
+pyttsx3==2.90
