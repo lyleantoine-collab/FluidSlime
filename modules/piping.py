@@ -1,5 +1,5 @@
-# modules/piping.py
 from src.core.routing_engine import design_route
+from src.core.merge import merge_paths
 from rules.piping import RULES
 
 def design_piping_network(dem_path, sources, sinks):
