@@ -1,5 +1,5 @@
-# modules/hvac.py
 from src.core.routing_engine import design_route
+from src.core.merge import merge_paths
 from rules.hvac import RULES
 
 def design_hvac_network(dem_path, sources, sinks):
