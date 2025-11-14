@@ -4,10 +4,12 @@
 ![Numba](https://img.shields.io/badge/Numba-10x%20Faster-red)
 ![Hybrid](https://img.shields.io/badge/SEPTET%20HYBRID-SLIME%2BANT%2BGA%2BPSO%2BNSGAII%2BWOA%2BFIREFLY-purple)
 ![Voice](https://img.shields.io/badge/Voice%20Control-Yes-blue)
+![LiDAR](https://img.shields.io/badge/LiDAR-1cm%20Resolution-yellow)
+![GIS](https://img.shields.io/badge/GIS-QGIS%20%7C%20ArcGIS%20%7C%20Web-orange)
 
 # FluidSlime
 
-**55% cheaper infrastructure. 0.022 seconds. Voice-controlled.**
+**55% cheaper infrastructure. 0.022 seconds. Voice-controlled. 3D reality.**
 
 > _“Darkness isn’t scary when we share the spark.”_ – **Amina**, Kenya
 
@@ -43,8 +45,16 @@
 
 ---
 
-## One-Click Demo
+## Live Demo
+**Try it now** → [Hugging Face Spaces](https://huggingface.co/spaces/lyleantoine/FluidSlime)  
+**Voice + Map + KML + PDF**
+
+---
+
+## One-Click Install
 
 ```bash
+git clone https://github.com/lyleantoine-collab/FluidSlime.git
+cd FluidSlime
 pip install -e .
 streamlit run app.py
