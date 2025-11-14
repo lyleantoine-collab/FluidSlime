@@ -12,3 +12,6 @@ with open("config/default.yaml") as f:
 def get_optimizer():
     mode = cfg.get("optimizer", "hybrid")
     return {"classic": classic, "hybrid": hybrid, "nsga2": nsga2, "ga": ga, "pso": pso}.get(mode, hybrid)
+# factory.py — add vortex/termite toggle
+cfg["use_vortex"] = True
+cfg["use_termite"] = True
