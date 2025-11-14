@@ -10,3 +10,8 @@ pyaudio==0.2.14
 matplotlib==3.8.4
 scikit-learn==1.5.0
 scipy==1.13.0
+geopandas
+shapefile
+rasterio
+folium
+streamlit-folium
