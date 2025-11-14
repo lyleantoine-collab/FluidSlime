@@ -15,3 +15,4 @@ inspyred          # ECJ-style evolutionary computation
 niapy             # Nature-inspired algorithms (200+)
 pyade             # Differential Evolution
 pyfoam
+ifcopenshell
