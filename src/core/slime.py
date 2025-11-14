@@ -1,44 +1,60 @@
+# src/core/slime.py — FULL FILE (NUMBA + CONCISE BEAST)
 import numpy as np
-from scipy.ndimage import convolve
+from numba import jit
 
-def run_slime_optimizer(elev, start, end, max_slope=0.02, steps=200,
-                        decay=0.98, growth=0.05, fade=0.9):
+@jit(nopython=True)
+def _slime_step(tubes: np.ndarray, diffused: np.ndarray, flow_factor: float = 0.05) -> np.ndarray:
+    return tubes * diffused * flow_factor
+
+@jit(nopython=True)
+def _diffuse(elev: np.ndarray, source_y: int, source_x: int, decay: float = 0.9) -> np.ndarray:
     rows, cols = elev.shape
+    diffused = np.zeros((rows, cols), dtype=np.float32)
+    diffused[source_y, source_x] = 1.0
+    for _ in range(20):
+        new_diff = np.zeros_like(diffused)
+        for y in range(rows):
+            for x in range(cols):
+                if diffused[y, x] > 0:
+                    for dy in [-1, 0, 1]:
+                        for dx in [-1, 0, 1]:
+                            ny, nx = y + dy, x + dx
+                            if 0 <= ny < rows and 0 <= nx < cols and (dy != 0 or dx != 0):
+                                cost = 1.0 / (1.0 + abs(elev[ny, nx] - elev[y, x]))
+                                new_diff[ny, nx] += diffused[y, x] * cost * decay
+        diffused = new_diff
+    return diffused
 
-    grad_y, grad_x = np.gradient(elev)
-    slope = np.hypot(grad_x, grad_y)
-    attract = 1 / (1 + 100 * np.maximum(0, slope - max_slope))
+def run_slime_optimizer(elev: np.ndarray, start: tuple, end: tuple, transform, steps: int = 400) -> tuple:
+    rows, cols = elev.shape
+    start_y, start_x = start
+    end_y, end_x = end
 
-    tubes = np.ones((rows, cols)) * 0.1
-    attract[start[0], start[1]] = 2
-    attract[end[0], end[1]]   = 2
-
-    kernel = np.array([[0.25, 0.5, 0.25],
-                       [0.5,  -1,   0.5],
-                       [0.25, 0.5, 0.25]])
+    tubes = np.zeros((rows, cols), dtype=np.float32)
+    tubes[start_y, start_x] = 1.0
+    tubes[end_y, end_x] = 1.0
 
     for _ in range(steps):
-        diffused = convolve(attract, kernel, mode='wrap') + attract * 0.2
-        flux = tubes * diffused
-        tubes += flux * growth
-        tubes *= decay
-        tubes = np.clip(tubes, 0.01, 5)
-        attract = diffused * fade
+        diffused = _diffuse(elev, start_y, start_x)
+        diffused += _diffuse(elev, end_y, end_x)
+        tubes = _slime_step(tubes, diffused)
 
+    # Extract path
     path = []
-    pos = np.array(start)
-    seen = set()
-    while tuple(pos) not in seen and not np.all(pos == end):
-        seen.add(tuple(pos))
-        path.append(tuple(pos))
-        neighbors = [(pos[0]+dy, pos[1]+dx)
-                     for dy in [-1,0,1] for dx in [-1,0,1]
-                     if 0 <= pos[0]+dy < rows and 0 <= pos[1]+dx < cols]
-        if not neighbors:
+    pos = (start_y, start_x)
+    path.append(pos)
+    visited = set([pos])
+    for _ in range(rows * cols):
+        y, x = pos
+        neighbors = [(y+dy, x+dx) for dy in [-1,0,1] for dx in [-1,0,1] 
+                    if 0 <= y+dy < rows and 0 <= x+dx < cols and (dy,dx) != (0,0)]
+        next_pos = max(neighbors, key=lambda p: tubes[p[0], p[1]], default=None)
+        if next_pos is None or next_pos in visited or tubes[next_pos[0], next_pos[1]] < 0.01:
             break
-        next_pos = max(neighbors, key=lambda p: tubes[p])
-        if next_pos == tuple(pos):
+        path.append(next_pos)
+        pos = next_pos
+        visited.add(pos)
+        if pos == (end_y, end_x):
             break
-        pos = np.array(next_pos)
-    path.append(end)
-    return path, tubes
+
+    return path, {"tubes": tubes}
