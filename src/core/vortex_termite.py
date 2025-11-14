@@ -1,4 +1,3 @@
-# src/core/vortex_termite.py
 import numpy as np
 
 def apply_termite_decay(tubes, decay_rate=0.95):
