@@ -12,3 +12,5 @@ cost:
   per_meter: 280
   fitting: 45
   vortex_damper: 120
+  pulse_freq: 7.83
+comfort_bonus: 15
