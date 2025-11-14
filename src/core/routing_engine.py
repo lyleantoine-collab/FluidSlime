@@ -37,3 +37,12 @@ def design_route(dem_path, start, end, rules, module="canal"):
     return {"path": path_px, "cost": cost, "kml": kml, "module": module}
 from src.io.dxf import path_to_dxf
 path_to_dxf(path_px, f"{module}.dxf")
+# Add at end of design_route()
+from src.io.geojson import path_to_geojson
+from src.io.shapefile import path_to_shapefile
+from src.io.raster import cost_heatmap
+
+if elev is not None:
+    path_to_geojson(path_px, transform, elev, f"{module}.geojson")
+    path_to_shapefile(path_px, transform, elev, module)
+    cost_heatmap(elev, path_px, transform, f"{module}_cost.tif")
